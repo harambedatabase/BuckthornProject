@@ -1,0 +1,17 @@
+TO DO LIST
+On update specs
+On delete specs
+
+Student Access
+	Add Observation
+	Generate Reports
+
+Admin Access
+	Add Observation
+	Delete Observation
+	Edit Observation
+	Generate Reports
+
+Commit/Rollback
+
+User Error
