@@ -3,7 +3,7 @@ TO DO LIST
 On update specs
 On delete specs
 
-Main page:
+Main page (index.html):
 	New Team
 		Create new team
 		Add Observation
@@ -15,6 +15,12 @@ Main page:
 		Delete Observation
 		Edit Observation
 	Generate Reports
+
+newTeam.html:
+Collect team name
+An array of students using "Add" student button with text field
+Display the students in a text box with subtract capability
+Finish button to submit new team with students (Array of students >=2)
 
 Commit/Rollback
 
