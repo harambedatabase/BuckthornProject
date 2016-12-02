@@ -1,0 +1,23 @@
+.card{
+   position: fixed;
+   text-align: center;
+   left: 0%;
+   right: 0;
+   width: 50%;
+   margin: 0 auto;
+   padding: 1em;
+   background-color: #fff;
+   border-radius: 25px;
+   margin-top: 10%;
+}
+h2 {
+    padding-top: -2em;
+    text-transform: uppercase;
+}
+body {
+    background-color: #f3f3f3;
+}
+a {
+    margin-bottom: 1em;
+    display: block;
+}

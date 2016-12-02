@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>This Is Not A Database</title>
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+  <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Create Team</h2>
+    <br/>
+    <form name="createTeam" method="get" action="">
+      <h3>Enter your Team Name:</h3>
+      <input type="text" id="teamName">
+      <h3>Enter Team Member:</h3>
+      <input type="text" id="newMember">
+      <input type="button" id="addMember" value="Add Member" onclick="addMember()">
+      <h3>Members:</h3>
+      <textarea d="memberArea">
+      </textarea>
+      <br/>
+      <input type="button" value="Finish" method="get">
+    </form>
+  </div>
+</body>
+<script language="javascript" type="text/javascript">
+  var members = [];
+  function addMember(){
+      var newMember = document.getElementById("newMember").value;
+      members.push(newMember);
+      document.getElementById("memberArea").value += newMember + "\n";
+    }
+</script>
+</html>
