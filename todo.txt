@@ -3,14 +3,17 @@ TO DO LIST
 On update specs
 On delete specs
 
-Student Access
-	Add Observation
-	Generate Reports
-
-Admin Access
-	Add Observation
-	Delete Observation
-	Edit Observation
+Main page:
+	New Team
+		Create new team
+		Add Observation
+	Returning Team
+		Add Observation
+	Admin
+		(Have a list of all the reports for the admin to add/delete/edit)
+		Add Observation
+		Delete Observation
+		Edit Observation
 	Generate Reports
 
 Commit/Rollback
