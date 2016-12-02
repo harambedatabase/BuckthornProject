@@ -1,86 +1,64 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
+  <title>Spy Report</title>
   <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8"/>
   <meta http-equiv="Content-Style-Type" content="text/css"/>
-  <meta name="description" content="Demonstrate php form handling." />
+  <meta name="description" content="The back-end to a demonstration of php form handling." />
   <meta name="keywords" content="php, forms" />
-  <title>This is not a Database</title>
 </head>
-
 <body>
-  <h1>A Sample Form</h1>
-  <p>
-    Here is some helpful information about how to fill in this form:
-  </p>
+  <h1>Spy Data For <?php print $_POST["codename"]?></h1>
+  <?php
+  switch ($_POST["jobcategory"]) {
+     case "sa": $job = "a Secret Agent";
+                break;
+     case "da": $job = "a Double Agent";
+                break;
+     case "ff": $job = "a Femme Fatale";
+                break;
+     case "ib": $job = "an Innocent Bystander";
+  }
+  ?>
+  <p>You are applying for a job as <?php print "$job.";?></p>
+  <p>Your self-reported qualifications are: </p>
   <ul>
-    <li>Use your mouse and keyboard.</li>
-    <li>Think first.</li>
+  <?php
+  // from http://www.html-form-guide.com/php-form/php-form-checkbox.html
+  function IsChecked($chkname,$value)
+    {
+        if(!empty($_POST[$chkname]))
+        {
+            foreach($_POST[$chkname] as $chkval)
+            {
+                if($chkval == $value)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
+  if (empty($_POST["features"]))
+      print "<li>I have no qualifications.</li>";
+  if (IsChecked("features","smart"))
+      print "<li>I am smart.</li>";
+  if (IsChecked("features","attractive"))
+      print "<li>I am attractive.</li>";
+  if (IsChecked("features","childrenLike"))
+      print "<li>Small children like me.</li>";
+  if (IsChecked("features","rich"))
+      print "<li>I am rich.</li>";
+  ?>
   </ul>
-  <p>
-    Here is the actual form:
-  </p>
+ <p>Two spies who have influenced you are <?php $s1 = $_POST['influence']; $s2 = $_POST['influence2'];
+    print "$s1 and $s2.";?></p>
 
-
-  <table border="1">
-    <tr><td>
-      <form action="http://www.mathcs.bethel.edu/~gossett/spies.php" method="post">
-        <p>This is an amazing form! Fill it in!</p>
-        <p>Enter your secret code name.
-          <input type="text" name="codename" size="20"/>
-        </p>
-        <p>
-          Choose a job description:
-        </p>
-        <p>
-          <input type="radio" name="jobcategory" value="sa"/>Secret Agent<br/>
-          <input type="radio" name="jobcategory" value="da"/>Double Agent<br/>
-          <input type="radio" name="jobcategory" value="ff"/>Femme Fatale<br/>
-          <input type="radio" name="jobcategory"  value="ib" checked="checked"/>Innocent Bystander
-        </p>
-
-        <p>
-          Select all that apply:
-        </p>
-        <!-- Note the use of the [] after the common name to tell PHP that an array should be generated. -->
-        <p>
-          <input type="checkbox" name="features[]" value="smart"/>I am smart.<br/>
-          <input type="checkbox" name="features[]" value="attractive"/>I am attractive.<br/>
-          <input type="checkbox" name="features[]" value="childrenLike"/>Small children like me.<br/>
-          <input type="checkbox" name="features[]" value="rich"/>I am rich.<br/>
-        </p>
-
-        <p>
-          Select two famous spies that have been most influential in your decision to join our organization.
-        </p>
-        <p>
-          <select name="influence">
-            <option>Mata Hari</option>
-            <option>James Bond</option>
-            <option selected="selected">Harry Potter</option>
-          </select>
-          <select name="influence2" size="3">
-            <option>Jennifer Garner</option>
-            <option>Belle Boyd</option>
-            <option>Oskar Schindler</option>
-            <option>Alfred Drefus</option>
-          </select>
-        </p>
-
-        <p>
-          Write a short essay describing why we should trust you.
-        </p>
-        <p>
-          <textarea name="essay" rows="8" cols="44">
-          </textarea>
-        </p>
-
-        <p>
-          <input type="submit" value="Submit" />
-          <input type="reset" value="Clear Form" />
-        </p>
-      </form>
-    </td></tr>
-  </table>
-
+ <h2>Your Essay</h2>
+ <p>
+ <?php print $_POST["essay"];?>
+ </p>
 </body>
 </html>
