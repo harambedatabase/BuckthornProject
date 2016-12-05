@@ -1,0 +1,22 @@
+<?php
+  session_start();
+?>
+<html>
+<head>
+  <title>This Is Not A Database</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <?php
+    $_SESSION["Admin"] = "true";
+  ?>
+  <div class="card">
+        <h2>Please Select an Action</h2>
+        <br/>
+        <a href="addObservation.html">Add Observation</a>
+        <a href="editObservation.html">Edit Observation</a>
+        <a href="deleteObservation.html">Delete Observation</a>
+        <a href="generate.html">Generate</a>
+    </div>
+</body>
+</html>
