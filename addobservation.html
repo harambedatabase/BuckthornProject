@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <html>
 <head>
   <title>This Is Not A Database</title>
@@ -53,7 +56,11 @@
     <div class="card large">
         <h2>Biodiversity</h2>
         <br/>
-
+        <h3>Biodiversity Index</h3>
+        <h3>Enter a letter (Start at B, where B designates Buckthorn):</h3>
+        <textarea id="letterArea" style="width: 300px; height: 150px;" readonly="true"></textarea>
+        <h3>Enter the number of the species designated by letter:</h3>
+        <textarea id="letterArea" style="width: 300px; height: 150px;" readonly="true"></textarea>
     </div>
 </body>
 </html>
