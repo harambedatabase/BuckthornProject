@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <form action="addObservationPHP.php" method="post">
     <div class="card large">
         <h2>Team</h2>
         <br/>
         <h3>Enter your Team Name</h3>
-        <input type="text" id="teamName">
+        <input type="text" name="teamName">
     </div>
   	<div class="card large">
         <h2>General</h2>
@@ -71,5 +72,9 @@
         <h3>Numbers:</h3>
         <textarea id="numberArea" style="width: 100px; height: 100px;" readonly="true"></textarea>
     </div>
+    <div class="card large">
+        <input type="submit" value="Submit">
+    </div>
+    </form>
 </body>
 </html>
