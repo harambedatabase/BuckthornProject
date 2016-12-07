@@ -1,6 +1,9 @@
 function addMember(){
   var newMember = document.getElementById("newMember").value;
-  document.getElementById("memberArea").value += newMember + "\n";
+  if(!newMember == ""){
+    document.getElementById("memberArea").value += newMember + "\n";
+    document.getElementById("newMember").value = "";
+  }
 };
 
 function addLetter(){
