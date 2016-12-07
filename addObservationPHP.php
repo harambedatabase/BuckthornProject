@@ -1,11 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns = "http://www.w3.org/1999/xhtml" xml:lang="en">
+<?php
+  session_start();
+?>
+<html>
 <head>
-  <title>Add Observation</title>
   <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css"/>
+  <meta name="keywords" content="php, mixed array" />
 </head>
 <body>
-	<h2>Team Name: <?php print $_POST["teamName"]?></h2>
+
+	<h2>Team Name: <?php echo $_POST["teamName"];?></h2>
+	<?php
+
+
+	?>
+
 </body>
 </html>
