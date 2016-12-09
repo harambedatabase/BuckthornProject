@@ -11,9 +11,6 @@
 
         $query = "INSERT INTO Student VALUES($_POST["id"],$_POST["teamName"],$_POST["name"])";
 
-    <h1>TeamName: <?php print $_POST["teamName"]; ?></h1>
-  <?php
-
         $result = mysqli_query($con, $query);
 
         if(!$result)
