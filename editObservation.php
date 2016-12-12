@@ -19,7 +19,7 @@
       // you also may need to set extension_dir in the php.ini file
     ?>
     <table border='1'>
-    <tr><th>Observation</th><th>Team Name</th><th> </th></tr>
+    <tr><th>Observation</th><th>Team Name</th><th>        </th></tr>
     <?php
     // iterate through the result set
     while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
