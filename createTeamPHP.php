@@ -1,15 +1,9 @@
 <html>
-    <head>
-        <title>Create Team</title>
-    </head>
 <body>
   <?php
-        $con = mysqli_connect("localhost","jot43536","harambe2020!","ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+        $con = mysqli_connect("localhost","mjf78594","A1G0r!tHm","ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 
-        // Get this from somewhere rather than set it
-        $id = 1;
-
-        $query = "INSERT INTO Student VALUES($_POST["id"],$_POST["teamName"],$_POST["name"])";
+        $query = "INSERT INTO Student (Team_Name,Name) VALUES('".$_POST['teamName']."','".$_POST['name']."')";
 
         $result = mysqli_query($con, $query);
 
@@ -18,9 +12,16 @@
             die('Data could not be entered.' . mysql_error());
         }
 
-        echo "Data entered successfully."
+        echo "Data entered successfully.\n";
 
         mysql_close($con);
   ?>
+
+    <p>
+    <a href="index.html">Return to Index</a>
+    </p>
+    <p>
+    <a href="createTeam.html">Add Another Student</a>
+    <p>
 </body>
 </html>
