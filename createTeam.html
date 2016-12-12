@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <html>
 <head>
   <title>This Is Not A Database</title>
@@ -14,7 +17,18 @@
       <h3>Enter your Team Name:</h3>
       <input type="text" name="teamName" id="teamName">
       <h3>Full Name:</h3>
-      <input type="text" name="name" id="name">
+      <!--TODO Get this to take the member from name and add it to an array that can be used  as a session variable-->
+      <input type="text" name="name" id="memberName">
+      <input type="button" value="Add Member" onclick="addMember()" name="members">
+      <h3>Members:</h3>
+      <textarea id="memberArea" style="width: 100px; height: 100px;" readonly="true"></textarea>
+      <?php
+      $arrayOfMembers
+      foreach(explode("\n", $memberArea) as $line){
+        array_push($arrayOfMembers, $line);
+      }
+      $_SESSION['members'] = $arrayOfMembers;
+      ?>
     </p>
     <p>
       <input type="submit" value="Submit" />
