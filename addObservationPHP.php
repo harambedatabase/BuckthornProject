@@ -10,7 +10,9 @@
 <body>
 	<?php
   // connect to database
-  $con = mysqli_connect("localhost","jot43536","harambe2020!","ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+  $username = "mjf78594";
+  $password = "A1G0r!tHm";
+  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 
   //insert general
   $query = "INSERT INTO General VALUES($_POST["id"],$_POST["quadrantGPS_NS"],$_POST["quadrantGPS_EW"],$_POST["quadrantSize"],$_POST["buckthornSize"],$_POST["density"],$_POST["buckthornCoverage"],$_POST["median"],$_POST["habitat"],$_POST["photos"],$_POST["otherNotes"])";
