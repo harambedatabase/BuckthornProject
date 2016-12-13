@@ -5,10 +5,10 @@ On delete specs
 
 Main page (index.html):
 	New Team
-		Create new team
-		Add Observation
+		Create new team --
+		Add Observation -
 	Returning Team
-		Add Observation
+		Add Observation -
 	Admin
 		(Have a list of all the reports for the admin to add/delete/edit)
 		Add Observation
@@ -17,10 +17,10 @@ Main page (index.html):
 	Generate Reports
 
 newTeam.html:
-Collect team name
-An array of students using "Add" student button with text field
-Display the students in a text box with subtract capability
-Finish button to submit new team with students (Array of students >=2)
+Collect team name --
+An array of students using "Add" student button with text field --
+Display the students in a text box with subtract capability --
+Finish button to submit new team with students (Array of students >=1) --
 
 Commit/Rollback
 

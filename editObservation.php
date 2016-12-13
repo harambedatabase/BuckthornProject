@@ -23,7 +23,7 @@
     <?php
     // iterate through the result set
     while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
-     echo "<tr><td>" . $row['Data_ID'] . "</td><td>" . $row['Team_Name']  . "</td><td><form><input type=submit value="Edit Observation" style="width:100%"></form></td><td style='text-align:center'></td></tr>\n";
+     echo "<tr><td>" . $row['Data_ID'] . "</td><td>" . $row['Team_Name']  . "</td><td><form><input type=submit value="Edit Observation" id="editObservation" style="width:100%"></form></td><td style='text-align:center'></td></tr>\n";
     }
     ?>
   </table>

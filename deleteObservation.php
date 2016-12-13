@@ -14,16 +14,13 @@
     	   // create the query and send it
         $query = "select Data_ID, Team_Name from Data";
     	  $result = mysqli_query($con, $query);
-      // mysql_query is a php function
-      // you may need to uncomment ;extension=php_mysqli.dll <for windows, something similar for unix> in php.ini
-      // you also may need to set extension_dir in the php.ini file
     ?>
     <table border='1'>
     <tr><th>Observation</th><th>Team Name</th><th> </th></tr>
     <?php
     // iterate through the result set
     while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
-     echo "<tr><td>" . $row['Data_ID'] . "</td><td>" . $row['Team_Name']  . "</td><td><form><input type=submit value="Delete Observation" style="width:100%"></form></td><td style='text-align:center'></td></tr>\n";
+     echo "<tr><td><form><input action="deleteConfirm.php" method="post" value="Delete Observation" id="deleteObservation" style="width:100%"></td><td>" . $row['Data_ID'] . "</td><td>" . $row['Team_Name']  . "</td><input type="hidden" value="$row['Data_ID']" name="observationNumber"></form><td style='text-align:center'></td></tr>\n";
     }
     ?>
   </table>
