@@ -13,13 +13,12 @@
 
     $members = explode("\n",$memberArea);
 
-print_r(array_values($members));
-
     foreach($members as $line){
 
-        $query = "INSERT INTO Student VALUES(null,'" . $line . "', '" . $teamName . "')";
+        $name = trim($line);
+        $query = "INSERT INTO Student VALUES(null,'" . $name . "', '" . $teamName . "')";
 
-echo $query,"\n";
+//echo $query,"\n";
 
 //      $result = mysqli_query($con, $query);
         $result = $con->query($query);
