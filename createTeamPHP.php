@@ -5,8 +5,9 @@
 <body>
     <div class="card">
     <?php
-        $con = mysqli_connect("localhost","mjf78594","A1G0r!tHm","ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
-
+        $username = "mjf78594";
+        $password = "A1G0r!tHm";
+        $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
         $con->autocommit(false);
         $teamName = $_POST['teamName'];
         $memberArea = trim($_POST['memberArea']);
