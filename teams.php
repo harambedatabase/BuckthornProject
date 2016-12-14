@@ -12,16 +12,21 @@
 <body>
 	<div class="card">
 		<h2>Teams and Members</h2>
-
+    <a href="index.html">Back to Home</a>
     <?php
         $username = "mjf78594";
         $password = "A1G0r!tHm";
      	  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
-        $query = "select * from Data";
+        $query = "select * from Student";
     	  $result = mysqli_query($con, $query);
+
+        if(!$result)
+        {
+            die('Data could not be entered.' . mysql_error());
+        }
     ?>
-    <table border='1'>
-    <tr><th> </th><th>Observation</th><th>Team Name</th></tr>
+    <table border='1' id="teamTable">
+    <tr><th>Team Name</th><th>Members</th></tr>
     <?php
     // iterate through the result set
     while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
@@ -33,11 +38,6 @@
           </tr>";
     }
     ?>
-
-
-
-
-		<a href="index.html">Back to Home</a>
 	</div>
 </body>
 </html>

@@ -31,3 +31,7 @@ h3 {
   width: 25em;
   height: 15em;
 }
+#teamTable {
+  margin-left: auto;
+  margin-right: auto;
+}
