@@ -18,9 +18,9 @@
     $result = mysqli_query($con, $query);
     if(!$result)
     {
-      die('Data could not be entered.' . mysql_error());
+      die('Data could not be deleted.' . mysql_error());
     }
-    echo "Data entered successfully.\n";
+    echo "Data deleted successfully.\n";
    ?>
 </body>
 </html>
