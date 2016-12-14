@@ -21,10 +21,10 @@
     // iterate through the result set
     while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
      echo "<tr>
-            <td><form><input action="editObservation.php" type="btn" method="post" value="Edit Observation" id="editObservation" style="width:100%"></td>
-            <td>"' . $row['Data_ID'] . '"</td>
-            <td>"' . $row['Team_Name'] . '"</td>
-            <input type="hidden" value="$row['Data_ID']" name="observationNumber"></form>
+            <td><form><input action='deleteConfirm.php' type='btn' method='post' value='Delete Observation' id='deleteObservation' style='width:100%'></td>
+            <td>" , $row['Data_ID'] , "</td>
+            <td>" , $row['Team_Name'] , "</td>
+            <input type='hidden' value=",$row['Data_ID']," name='observationNumber'></form>
           </tr>";
     }
     ?>
