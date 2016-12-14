@@ -1,5 +1,6 @@
 <html>
 <body>
+  <div class="card">
   <?php
     $con = mysqli_connect("localhost","mjf78594","A1G0r!tHm","ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 
@@ -41,6 +42,6 @@
     <p>
     <a href="index.html">Return to Index</a>
     </p>
-
-    </body>
-    </html>
+  </div>
+</body>
+</html>
