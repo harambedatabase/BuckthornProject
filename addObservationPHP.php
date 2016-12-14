@@ -14,7 +14,7 @@
   $password = "A1G0r!tHm";
   $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 
-  $setTeam = "INSERT INTO Data (Team_Name) VALUES('" . $_POST["teamName"] . "');";
+  $setTeam = "INSERT INTO Data (Team_Name, Date) VALUES('" . $_POST["teamName"] . "', '" . $_POST["date"] . "');";
   $resultTeam = mysqli_query($con, $setTeam);
   if(!$resultTeam)
   {
