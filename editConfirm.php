@@ -86,17 +86,17 @@
         <h2>Competitive</h2>
         <br/>
         <h3>DBH of Buckthorn:</h3>
-        <input type="text" name="buckthornDBH" value=$dbh>
+        <input type="text" name="buckthornDBH" value=<?php $dbh ?>>
         <h3>Distance to nearest buckthorn neighbor:</h3>
-        <input type="text" name="distanceBN" value=$distanceBN>
+        <input type="text" name="distanceBN" value=<?php $distanceBN ?>>
         <h3>DBH of nearest buckthorn neighbor:</h3>
-        <input type="text" name="BNDBH" value=$BNDBH>
+        <input type="text" name="BNDBH" value=<?php $BNDBH ?>>
         <h3>Distance to nearest non-buckthorn neighbor:</h3>
-        <input type="text" name="distanceNBN" value=$distanceNBN>
+        <input type="text" name="distanceNBN" value=<?php $distanceNBN ?>>
         <h3>DBH of nearest non-buckthorn neighbor:</h3>
-        <input type="text" name="NBNDBH" value=$nbndbh>
+        <input type="text" name="NBNDBH" value=<?php $nbndbh ?>>
         <h3>Notes (opional):</h3>
-        <input type="text" name="competitionNotes" value=$compNotes>
+        <input type="text" name="competitionNotes" value=<?php $compNotes ?>>
     </div>
     <div class="card large">
         <h2>Biodiversity</h2>
