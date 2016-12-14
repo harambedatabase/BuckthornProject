@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <html>
 <head>
   <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8">
@@ -14,7 +11,7 @@
   $password = "A1G0r!tHm";
   $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 
-  $setTeam = "INSERT INTO Data (Team_Name) VALUES('" . $_POST["teamName"] . "');";
+  $setTeam = "INSERT INTO Data (Team_Name, Date) VALUES('" . $_POST["teamName"] . "', '" . $_POST["date"] . "');";
   $resultTeam = mysqli_query($con, $setTeam);
   if(!$resultTeam)
   {
@@ -26,11 +23,11 @@
   echo "Last inserted ID is: " . $last_id . "<br>";
 
   //insert general
-  $setGeneral = "INSERT INTO General (Data_ID, QuadrantGPS_NS, QuadrantGPS_EW, QuadrantSize, BuckthornSize, Density, BuckthornCoverage, 
-                                 Median, Habitat, Photos, OtherNotes) VALUES(" . $last_id . ", " . $_POST["quadrantGPS_NS"] . ", " 
-                                         . $_POST["quadrantGPS_EW"] . ", '" . $_POST["quadrantSize"] . "', " 
-                                         . $_POST["buckthornSize"] . ", '" . $_POST["density"] . "', " 
-                                         . $_POST["buckthornCoverage"] . ", '" . $_POST["median"] . "', '" 
+  $setGeneral = "INSERT INTO General (Data_ID, QuadrantGPS_NS, QuadrantGPS_EW, QuadrantSize, BuckthornSize, Density, BuckthornCoverage,
+                                 Median, Habitat, Photos, OtherNotes) VALUES(" . $last_id . ", " . $_POST["quadrantGPS_NS"] . ", "
+                                         . $_POST["quadrantGPS_EW"] . ", '" . $_POST["quadrantSize"] . "', "
+                                         . $_POST["buckthornSize"] . ", '" . $_POST["density"] . "', "
+                                         . $_POST["buckthornCoverage"] . ", '" . $_POST["median"] . "', '"
                                          . $_POST["habitat"] . "', '" . $_POST["photos"]. "', '" . $_POST["otherNotes"] . "');";
 
   $resultGeneral = mysqli_query($con, $setGeneral);
@@ -43,7 +40,7 @@
   //insert competitive
   $setCompetitive = "INSERT INTO Competitive (Data_ID, BuckthornDBH, DistanceBN, BNDBH, DistanceNBN, NBNDBH, CompetitionNotes)
                                      VALUES(" . $last_id . ", " . $_POST["buckthornDBH"] . ", " . $_POST["distanceBN"] . ", "
-                                              . $_POST["BNDBH"] . ", " . $_POST["distanceNBN"] . ", " . $_POST["NBNDBH"] . ", '" 
+                                              . $_POST["BNDBH"] . ", " . $_POST["distanceNBN"] . ", " . $_POST["NBNDBH"] . ", '"
                                               . $_POST["competitionNotes"] . "');";
 
   $resultCompetitive = mysqli_query($con, $setCompetitive);
