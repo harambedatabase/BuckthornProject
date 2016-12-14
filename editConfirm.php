@@ -62,25 +62,25 @@
         <h2>General</h2>
         <br/>
         <h3>GPS Quadrant North/South:</h3>
-        <input type="text" name="quadrantGPS_NS" value=$gpsNS>
+        <input type="text" name="quadrantGPS_NS" value=<?php $gpsNS ?>>
         <h3>GPS Quadrant East/West:</h3>
-        <input type="text" name="quadrantGPS_EW" value=$gpsEW>
+        <input type="text" name="quadrantGPS_EW" value=<?php $gpsEW ?>>
         <h3>Quadrant Size:</h3>
-        <input type="text" name="quadrantSize" value=$quadSize>
+        <input type="text" name="quadrantSize" value=<?php $quadSize ?>>
         <h3>Number of Buckthorn Stems:</h3>
-        <input type="text" name="buckthornSize" value=$numBuckthorn>
+        <input type="text" name="buckthornSize" value=<?php $numBuckthorn ?>>
         <h3>Density(# of stems/m^2):</h3>
-        <input type="text" name="density" value=$density>
+        <input type="text" name="density" value=<?php $density ?>>
         <h3>% Buckthorn Foliar Coverage:</h3>
-        <input type="text" name="buckthornCoverage" value=$coverage>
+        <input type="text" name="buckthornCoverage" value=<?php $coverage ?>>
         <h3>Median Buckthorn Stem Circumference:</h3>
-        <input type="text" name="median" value=$median>
+        <input type="text" name="median" value=<?php $median ?>>
         <h3>Habitat Description:</h3>
-        <input type="text" name="habitat" value=$habitat>
+        <input type="text" name="habitat" value=<?php $habitat ?>>
         <h3>Photos:</h3>
-        <input type="text" name="photos" value=$photos>
+        <input type="text" name="photos" value=<?php $photos ?>>
         <h3>Notes (opional):</h3>
-        <input type="text" name="otherNotes" value=$notes>
+        <input type="text" name="otherNotes" value=<?php $notes ?>>
     </div>
     <div class="card large">
         <h2>Competitive</h2>
