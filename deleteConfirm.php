@@ -8,8 +8,7 @@
 </head>
 <body>
   <?php
-    $ObsNumber = $_POST['observationNumber']
-    echo $ObsNumber;
+    $ObsNumber = $_POST['observationNumber'];
     $username = "mjf78594";
     $password = "A1G0r!tHm";
     $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
@@ -21,5 +20,9 @@
     }
     echo "Data deleted successfully.\n";
    ?>
+   <p>
+       <a href="admin.html">Return to Admin home</a>
+       <a href="deleteObservation.php">Delete another Observation</a>
+   </p>
 </body>
 </html>
