@@ -12,7 +12,7 @@
         $password = "A1G0r!tHm";
      	  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
     	  // create the query and send it
-        $query = "select Data_ID, Team_Name from Data";
+        $query = "select * from Data";
     	  $result = mysqli_query($con, $query);
     ?>
     <table border='1'>
