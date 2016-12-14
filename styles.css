@@ -27,3 +27,7 @@ a {
 h3 {
     margin-bottom: .25em;
 }
+#memberArea {
+  width: 25em;
+  height: 15em;
+}
