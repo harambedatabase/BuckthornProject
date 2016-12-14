@@ -8,7 +8,7 @@
 <body>
 	<div class="card">
 		<h2>Teams and Members</h2>
-    <a href="index.html">Back to Home</a>
+    <a href="generate.html">Back to Generate Reports</a>
     <?php
         $username = "mjf78594";
         $password = "A1G0r!tHm";

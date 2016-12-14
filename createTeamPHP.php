@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>This Is Not A Database</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
