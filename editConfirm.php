@@ -49,20 +49,20 @@
     $query18 = "select competitionNotes from Competitive where Data_ID = $ObsNumber";
     $compNotes = mysqli_query($con, $query18);
   ?>
-    <form action="addObservationPHP.php" method="post">
+    <form action="addEdit.php" method="post">
     <div class="card large">
         <h2>Team</h2>
         <br/>
         <h3>Enter your Team Name</h3>
-        <input type="text" name="teamName" value=$teamName>
+        <input type="text" name="teamName" value=<?php $teamName; ?>>
         <h3>Enter the Date(mm/dd/yy)</h3>
-        <input type="text" name="date" value=$date>
+        <input type="text" name="date" value=<?php $date?>>
     </div>
   	<div class="card large">
         <h2>General</h2>
         <br/>
         <h3>GPS Quadrant North/South:</h3>
-        <input type="text" name="quadrantGPS_NS" value=<?php $gpsNS ?>>
+        <input type="text" name="quadrantGPS_NS" value=<?php $gpsNS; ?>>
         <h3>GPS Quadrant East/West:</h3>
         <input type="text" name="quadrantGPS_EW" value=<?php $gpsEW ?>>
         <h3>Quadrant Size:</h3>
