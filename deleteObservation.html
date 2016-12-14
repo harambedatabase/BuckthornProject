@@ -10,7 +10,7 @@
         // connect to the database
         $username = "mjf78594";
         $password = "A1G0r!tHm";
-     	  $con = mysqli_connect("localhost",$username,$password,"university") or die("Some error occurred during connection " . mysqli_error($con));
+     	  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
     	   // create the query and send it
         $query = "select Data_ID, Team_Name from Data";
     	  $result = mysqli_query($con, $query);
