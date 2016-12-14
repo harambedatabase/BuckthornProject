@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <html>
 <head>
   <title>This Is Not A Database</title>
@@ -11,10 +8,12 @@
 </head>
 <body>
   <?php
+    $ObsNumber = $_POST['observationNumber']
+    echo $ObsNumber;
     $username = "mjf78594";
     $password = "A1G0r!tHm";
-    $con = mysqli_connect("localhost",$username,$password,"university") or die("Some error occurred during connection " . mysqli_error($con));
-    $query = "Delete * From Data where Data_ID = $_POST['observationNumber']";
+    $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+    $query = "Delete From Data where Data_ID = $ObsNumber";
     $result = mysqli_query($con, $query);
     if(!$result)
     {
