@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>This Is Not A Database</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-type" content="text/html" charset="utf-8"/>
     <meta name="keywords" content="php, mysql" />
   </head>
   <body>
@@ -21,9 +21,9 @@
     // iterate through the result set
     while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
      echo "<tr>
-            <form><td><input action="editObservation.php" type="btn" method="post" value="Edit Observation" id="editObservation" style="width:100%"></td>
-            <td>" . $row['Data_ID'] . "</td>
-            <td>" . $row['Team_Name'] . "</td>
+            <td><form><input action="editObservation.php" type="btn" method="post" value="Edit Observation" id="editObservation" style="width:100%"></td>
+            <td>"' . $row['Data_ID'] . '"</td>
+            <td>"' . $row['Team_Name'] . '"</td>
             <input type="hidden" value="$row['Data_ID']" name="observationNumber"></form>
           </tr>";
     }
