@@ -16,14 +16,14 @@
     	  $result = mysqli_query($con, $query);
     ?>
     <table border='1'>
-    <tr><th>Observation</th><th>Team Name</th><th> </th></tr>
+    <tr><th> </th><th>Observation</th><th>Team Name</th></tr>
     <?php
     // iterate through the result set
     while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
      echo "<tr>
-            <td><form><input action='editConfirm.php' type='btn' method='post' value='Edit Observation' id='editObservation' style='width:100%'></td>
+            <td><form action='editConfirm.php' method='post'><input type='submit' value='Edit Observation' id='editObservation' style='width:100%'></td>
             <td>" , $row['Data_ID'] , "</td>
-            <td>" , $row['Team_Name'] , "</td>
+            <td>" , $row['Team_Name'], "</td>
             <input type='hidden' value=",$row['Data_ID']," name='observationNumber'></form>
           </tr>";
     }
