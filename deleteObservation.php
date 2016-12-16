@@ -4,7 +4,8 @@
     <meta http-equiv="Content-type" content="text/html" charset="utf-8"/>
     <meta name="keywords" content="php, mysql" />
   </head>
-  <body>
+<body>
+  <div class="card">
     <h1>Observations</h1>
     <?php
         // connect to the database
@@ -28,6 +29,8 @@
           </tr>";
     }
     ?>
-  </table>
-  </body>
-  </html>
+    </table>
+    <a href="admin.html">Return to Home</a>
+  </div>
+</body>
+</html>
