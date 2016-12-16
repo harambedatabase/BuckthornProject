@@ -23,7 +23,7 @@
   echo "Data created successfully.<br>";
 
   $last_id = $con->insert_id;
-  echo "Last inserted ID is: " . $last_id . "<br>";
+  echo "Your Observation's ID is: " . $last_id . "<br>";
 
   //insert general
   $setGeneral = "INSERT INTO General (Data_ID, QuadrantGPS_NS, QuadrantGPS_EW, QuadrantSize, BuckthornSize, Density, BuckthornCoverage,
@@ -90,12 +90,10 @@
   }
 
   // end connection
+  echo "</p><a href='index.html'>Back to Home</a>
+  <a href='addObservation.html'>Add Another Observation</a>";
   mysql_close($con);
-
 	?>
-  </p>
-  <a href="index.html">Back to Home</a>
-  <a href="addObservation.html">Add Another Observation</a>
   </div>
 
 </body>
