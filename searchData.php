@@ -100,7 +100,7 @@
             die('Data could not be entered.' . mysql_error());
         }
         $sumOfSpecimens = 0;
-        $arrayOfSpecimens = [];
+        $arrayOfSpecimens = array();
         while($row = mysqli_fetch_array($result)) { //mysqli_fetch_array grabs the next entry in the array
           $sumOfSpecimens = $sumOfSpecimens + $row['Number'];
           array_push($arrayOfSpecimens, $row['Number']);
@@ -112,7 +112,7 @@
         echo "</table>";
         $sWIndex = 0;
         foreach ($arrayOfSpecimens as $num) {
-          $sWIndex = $sWIndex + (($num/$sumOfSpecimens)*log($num/$sumOfSpecimens);
+          $sWIndex = $sWIndex + (($num/$sumOfSpecimens)*log($num/$sumOfSpecimens));
         }
         $sWIndex = -1*$sWIndex;
         echo "Shannon Weiner Index: $sWIndex";
