@@ -1,11 +1,14 @@
 <html>
   <head>
     <title>This Is Not A Database</title>
-    <meta http-equiv="Content-type" content="text/html" charset="utf-8"/>
-    <meta name="keywords" content="php, mysql" />
+    <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+<body>
+    <div class="card">
     <h1>Observations</h1>
+    <br/>
+    <a href="admin.html">Return to Home</a>
+    <br/>
     <?php
         // connect to the database
         $username = "mjf78594";
@@ -15,7 +18,7 @@
         $query = "select * from Data";
     	  $result = mysqli_query($con, $query);
     ?>
-    <table border='1'>
+    <table border='1' id="teamTable">
     <tr><th> </th><th>Observation</th><th>Team Name</th></tr>
     <?php
     // iterate through the result set
@@ -28,6 +31,7 @@
           </tr>";
     }
     ?>
-  </table>
-  </body>
-  </html>
+    </table>
+  </div>
+</body>
+</html>
