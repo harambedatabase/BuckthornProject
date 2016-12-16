@@ -63,7 +63,8 @@
     $letters = $_POST['letters'];
     $numbers = $_POST['numbers'];
     $speciesArray = array(array());
-
+  }
+  
     $index = 0;
     foreach($letters as $line) {
       $letter = trim($line);
