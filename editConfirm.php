@@ -91,17 +91,17 @@
         <h2>Competitive</h2>
         <br/>
         <h3>DBH of Buckthorn:</h3>
-        <input type="text" name="buckthornDBH" value=<?php echo $dbh['BuckthornDBH']; ?>>
+        <input type="text" name="buckthornDBH" value="<?php echo $dbh['BuckthornDBH']; ?>">
         <h3>Distance to nearest buckthorn neighbor:</h3>
-        <input type="text" name="distanceBN" value=<?php echo $distanceBN['DistanceBN']; ?>>
+        <input type="text" name="distanceBN" value="<?php echo $distanceBN['DistanceBN']; ?>">
         <h3>DBH of nearest buckthorn neighbor:</h3>
-        <input type="text" name="BNDBH" value=<?php echo $BNDBH['BNDBH']; ?>>
+        <input type="text" name="BNDBH" value="<?php echo $BNDBH['BNDBH']; ?>">
         <h3>Distance to nearest non-buckthorn neighbor:</h3>
-        <input type="text" name="distanceNBN" value=<?php echo $distanceNBN['DistanceNBN']; ?>>
+        <input type="text" name="distanceNBN" value="<?php echo $distanceNBN['DistanceNBN']; ?>">
         <h3>DBH of nearest non-buckthorn neighbor:</h3>
-        <input type="text" name="NBNDBH" value=<?php echo $nbndbh['NBNDBH']; ?>>
+        <input type="text" name="NBNDBH" value="<?php echo $nbndbh['NBNDBH']; ?>">
         <h3>Notes (opional):</h3>
-        <input type="text" name="competitionNotes" value=<?php echo $compNotes['CompetitionNotes']; ?>>
+        <input type="text" name="competitionNotes" value="<?php echo $compNotes['CompetitionNotes']; ?>">
     </div>
     <div class="card large">
         <h2>Biodiversity</h2>
