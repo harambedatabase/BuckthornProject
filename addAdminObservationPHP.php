@@ -54,16 +54,15 @@
   }
   echo "Competitive Data entered successfully.<br>";
 
+  $letters = explode("\n", trim($_POST['letterArea']));
+  $numbers = explode("\n", trim($_POST['numArea']));
+  $speciesArray = array(array());
+
   //insert Species
-  if(!(count($letters) == 0)){
-    $letters = explode("\n", trim($_POST['letterArea']));
-    $numbers = explode("\n", trim($_POST['numArea']));
-    $speciesArray = array(array());
-  }else{
+  if(count($letters) == 0){
     $letters = $_POST['letters'];
     $numbers = $_POST['numbers'];
     $speciesArray = array(array());
-  }
 
     $index = 0;
     foreach($letters as $line) {
