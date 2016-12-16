@@ -14,7 +14,7 @@
   $username = "mjf78594";
   $password = "A1G0r!tHm";
   $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
-
+  // insert Data
   $setTeam = "INSERT INTO Data (Team_Name, Date) VALUES('" . $_POST["teamName"] . "', '" . $_POST["date"] . "');";
   $resultTeam = mysqli_query($con, $setTeam);
   if(!$resultTeam)
@@ -22,7 +22,7 @@
       die('Data could not be entered.' . mysql_error() . "<br>");
   }
   echo "Data created successfully.<br>";
-
+  // Get Data_ID
   $last_id = $con->insert_id;
   echo "Your Observation's ID is: " . $last_id . "<br>";
 
@@ -66,6 +66,7 @@
   //insert Species
   $letters = explode("\n", trim($_POST['letterArea']));
   $numbers = explode("\n", trim($_POST['numArea']));
+  // Create 2D array of Letters and Numbers
   $speciesArray = array(array());
   $index = 0;
   foreach($letters as $line) {
@@ -79,6 +80,7 @@
     $speciesArray[$index][1] = $number;
     $index++;
   }
+  // put species data in mysql table
   for($index=0; $index<count($speciesArray); $index++) {
     $query = "INSERT INTO Species (Data_ID, Letter, Number) VALUES(" . $last_id . ", '" . $speciesArray[$index][0] . "', " . $speciesArray[$index][1] . ");";
     $resultSpecies = mysqli_query($con, $query);
