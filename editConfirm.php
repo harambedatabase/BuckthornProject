@@ -64,7 +64,7 @@
 
     mysqli_commit($con);
   ?>
-    <form action="addObservationPHP.php" method="post">
+    <form action="addAdminObservationPHP.php" method="post">
       <input type='hidden' value=",$letters['Letter']," name='letters'>
       <input type='hidden' value=",$numbers['Number']," name='numbers'>
       <input type='hidden' value=",$bioNotes['BiodiversityNotes']," name='bioNotes'>
