@@ -48,17 +48,26 @@
     $nbndbh = mysqli_fetch_array(mysqli_query($con, $query17));
     $query18 = "select CompetitionNotes from Competitive where Data_ID = $ObsNumber;";
     $compNotes = mysqli_fetch_array(mysqli_query($con, $query18));
-    $query = "DELETE FROM Data WHERE Data_ID='$ObsNumber'";
-    $result = $con->query($query);
+    $query19 = "Select Letter from Species where Data_ID = $ObsNumber;";
+    $letters = mysqli_fetch_array(mysqli_query($con, $query19));
+    $query20 = "Select Number from Species where Data_ID = $ObsNumber;";
+    $numbers = mysqli_fetch_array(mysqli_query($con, $query20));
+    $query21 = "Select BiodiversityNotes from Biodiversity where Data_ID = $ObsNumber;";
+    $bioNotes = mysqli_fetch_array(mysqli_query($con, $query21));
+    $delQuery = "DELETE FROM Data WHERE Data_ID='$ObsNumber'";
+    $result = $con->query($delQuery);
 
     if(!$result)
     {
         die;
     }
 
-      mysqli_commit($con);
+    mysqli_commit($con);
   ?>
     <form action="addObservationPHP.php" method="post">
+      <input type='hidden' value=",$letters['Letter']," name='letters'>
+      <input type='hidden' value=",$numbers['Number']," name='numbers'>
+      <input type='hidden' value=",$bioNotes['BiodiversityNotes']," name='bioNotes'>
     <div class="card large">
         <h2>Team</h2>
         <br/>
