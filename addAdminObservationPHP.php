@@ -58,43 +58,37 @@
   $numbers = explode("\n", trim($_POST['numArea']));
   $speciesArray = array(array());
 
-  //insert Species
-  if(count($letters) == 0){
-    $letters = $_POST['letters'];
-    $numbers = $_POST['numbers'];
-    $speciesArray = array(array());
+  //insert biodiversity
+  $setBiodiversity = "INSERT INTO Biodiversity (Data_ID, BiodiversityNotes) VALUES(" . $last_id . ", '" . $_POST["biodiversityNotes"] . "');";
+  $resultBiodiversity = mysqli_query($con, $setBiodiversity);
+  if(!$resultBiodiversity)
+  {
+      die('Biodiversity Data could not be entered.' . mysql_error() . "<br>");
   }
-  
-    $index = 0;
-    foreach($letters as $line) {
-      $letter = trim($line);
-      $speciesArray[$index][0] = $letter;
-      $index++;
-    }
-    $index = 0;
-    foreach($numbers as $line) {
-      $number = trim($line);
-      $speciesArray[$index][1] = $number;
-      $index++;
-    }
-    for($index=0; $index<count($speciesArray); $index++) {
-      $query = "INSERT INTO Species (Data_ID, Letter, Number) VALUES(" . $last_id . ", '" . $speciesArray[$index][0] . "', " . $speciesArray[$index][1] . ");";
-      $result = mysqli_query($con, $query);
-      if(!$resultBiodiversity)
-      {
-        die('Species Data could not be entered.' . mysql_error() . "<br>");
-      }
-    }
-    echo "Species Data entered successfully.<br>";
+  echo "Biodiversity Data entered successfully.<br>";
 
-    //insert biodiversity
-    $setBiodiversity = "INSERT INTO Biodiversity (Data_ID, BiodiversityNotes) VALUES(" . $last_id . ", '" . $_POST["biodiversityNotes"] . "');";
-    $resultBiodiversity = mysqli_query($con, $setBiodiversity);
-    if(!$resultBiodiversity)
+  //insert Species
+  $index = 0;
+  foreach($letters as $line) {
+    $letter = trim($line);
+    $speciesArray[$index][0] = $letter;
+    $index++;
+  }
+  $index = 0;
+  foreach($numbers as $line) {
+    $number = trim($line);
+    $speciesArray[$index][1] = $number;
+    $index++;
+  }
+  for($index=0; $index<count($speciesArray); $index++) {
+    $query = "INSERT INTO Species (Data_ID, Letter, Number) VALUES(" . $last_id . ", '" . $speciesArray[$index][0] . "', " . $speciesArray[$index][1] . ");";
+    $resultSpecies = mysqli_query($con, $query);
+    if(!$resultSpecies)
     {
-        die('Biodiversity Data could not be entered.' . mysql_error() . "<br>");
+      die('Species Data could not be entered.' . mysql_error() . "<br>");
     }
-    echo "Biodiversity Data entered successfully.<br>";
+  }
+  echo "Species Data entered successfully.<br>";
 
   // end connection
   mysql_close($con);
