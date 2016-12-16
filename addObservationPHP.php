@@ -7,7 +7,6 @@
 </head>
 <body>
   <div class="card">
-  <p>
 	<?php
   // connect to database
   $username = "mjf78594";
@@ -90,11 +89,12 @@
   }
 
   // end connection
-  echo "</p><a href='index.html'>Back to Home</a>
-  <a href='addObservation.html'>Add Another Observation</a>";
   mysql_close($con);
 	?>
+  <p>
+  <a href='index.html'>Back to Home</a>
+  <a href='addObservation.html'>Add Another Observation</a>
+</p>
   </div>
-
 </body>
 </html>
