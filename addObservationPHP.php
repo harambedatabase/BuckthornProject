@@ -3,8 +3,11 @@
   <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8">
   <meta http-equiv="Content-Style-Type" content="text/css"/>
   <meta name="keywords" content="php, mixed array" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="card">
+  <p>
 	<?php
   // connect to database
   $username = "mjf78594";
@@ -90,6 +93,10 @@
   mysql_close($con);
 
 	?>
+  </p>
+  <a href="index.html">Back to Home</a>
+  <a href="addObservation.html">Add Another Observation</a>
+  </div>
 
 </body>
 </html>

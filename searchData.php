@@ -6,7 +6,7 @@
   	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<div class="card">
+	<div class="card large">
 		<h2>Observations by Data ID</h2>
     <a href="generate.html">Back to Generate Reports</a>
     <?php
