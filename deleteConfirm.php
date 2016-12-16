@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="card">
   <?php
     $ObsNumber = $_POST['observationNumber'];
     $username = "mjf78594";
@@ -24,5 +25,6 @@
        <a href="admin.html">Return to Admin home</a>
        <a href="deleteObservation.php">Delete another Observation</a>
    </p>
+ </div>
 </body>
 </html>
