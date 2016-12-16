@@ -81,8 +81,8 @@
   }
   for($index=0; $index<count($speciesArray); $index++) {
     $query = "INSERT INTO Species (Data_ID, Letter, Number) VALUES(" . $last_id . ", '" . $speciesArray[$index][0] . "', " . $speciesArray[$index][1] . ");";
-    $result = mysqli_query($con, $query);
-    if(!$resultBiodiversity)
+    $resultSpecies = mysqli_query($con, $query);
+    if(!$resultSpecies)
     {
       die('Species Data could not be entered.' . mysql_error() . "<br>");
     }
