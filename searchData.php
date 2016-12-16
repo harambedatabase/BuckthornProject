@@ -14,10 +14,13 @@
         $password = "A1G0r!tHm";
      	  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
         $id = $_POST['data_id'];
+// Each section repeats the same it of code here
 // Data
+        // Set up table
         echo "<h2>Data</h2>";
         echo "<table border='1' id='teamTable'>";
         echo "<tr><th>Data ID</th><th>Team Name</th><th>Date</th></tr>";
+        // Get the Data
         $query = "SELECT * FROM Data where Data_ID='$id'";
     	  $result = mysqli_query($con, $query);
 
@@ -25,8 +28,8 @@
         {
             die('Data could not be entered.' . mysql_error());
         }
-
-        while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
+        // Iterate throguh and output data in respective table columns
+        while($row = mysqli_fetch_array($result)) {	
 	     	echo "<tr>
 	            <td>" , $row['Data_ID'] , "</td>
 	            <td>" , $row['Team_Name'], "</td>
@@ -35,11 +38,13 @@
 	    	}
         echo "</table>";
 // General
+        // Set up table
         echo "<h2>General</h2>";
         echo "<table border='1' id='teamTable'>";
         echo "<tr><th>GPS Quadrant NS</th><th>GPS Quadrant EW</th><th>Quadrant Size</th><th>Number of Buckthorn Stems</th>
         <th>Density(# of stems/m^2)</th><th>% Buckthorn Foliar Coverage</th><th>Median Buckthorn Stem Circumference</th>
         <th>Habitat Description</th><th>Photos</th><th>Notes</th></tr>";
+        // Get the Data
         $query = "SELECT * FROM General where Data_ID='$id'";
           $result = mysqli_query($con, $query);
 
@@ -47,8 +52,8 @@
         {
             die('Data could not be entered.' . mysql_error());
         }
-
-        while($row = mysqli_fetch_array($result)) { //mysqli_fetch_array grabs the next entry in the array
+        // Iterate throguh and output data in respective table columns
+        while($row = mysqli_fetch_array($result)) { 
             echo "<tr>
                 <td>" , $row['QuadrantGPS_NS'] , "</td>
                 <td>" , $row['QuadrantGPS_EW'], "</td>
@@ -64,11 +69,13 @@
             }
         echo "</table>";
 // Competitive
+        // Set up table
         echo "<h2>Competitive</h2>";
         echo "<table border='1' id='teamTable'>";
         echo "<tr><th>DBH of Buckthorn</th><th>Distance to nearest buckthorn neighbor</th><th>DBH of nearest buckthorn neighbor</th>
         <th>Distance to nearest non-buckthorn neighbor</th><th>DBH of nearest non-buckthorn neighbor</th>
         <th>Notes</th></tr>";
+        // Get the Data
         $query = "SELECT * FROM Competitive where Data_ID='$id'";
           $result = mysqli_query($con, $query);
 
@@ -76,8 +83,8 @@
         {
             die('Data could not be entered.' . mysql_error());
         }
-
-        while($row = mysqli_fetch_array($result)) { //mysqli_fetch_array grabs the next entry in the array
+        // Iterate throguh and output data in respective table columns
+        while($row = mysqli_fetch_array($result)) { 
             echo "<tr>
                 <td>" , $row['BuckthornDBH'] , "</td>
                 <td>" , $row['DistanceBN'], "</td>
@@ -89,9 +96,11 @@
             }
         echo "</table>";
 // Biodiversity
+        // Set up table
         echo "<h2>Biodiversity</h2>";
         echo "<table border='1' id='teamTable'>";
         echo "<tr><th>Letter</th><th>Number</th></tr>";
+        // Get the Data
         $query = "SELECT * FROM Species where Data_ID='$id'";
           $result = mysqli_query($con, $query);
 
@@ -101,7 +110,9 @@
         }
         $sumOfSpecimens = 0;
         $arrayOfSpecimens = array();
-        while($row = mysqli_fetch_array($result)) { //mysqli_fetch_array grabs the next entry in the array
+        // Iterate throguh and output data in respective table columns
+        // Also grab data to use in Shannon-Weiner Index later
+        while($row = mysqli_fetch_array($result)) { 
           $sumOfSpecimens = $sumOfSpecimens + $row['Number'];
           array_push($arrayOfSpecimens, $row['Number']);
           echo "<tr>
@@ -110,6 +121,7 @@
                 </tr>";
         }
         echo "</table>";
+        // Calculate S-W Index and echo
         $sWIndex = 0;
         foreach ($arrayOfSpecimens as $num) {
           $sWIndex = $sWIndex + (($num/$sumOfSpecimens)*log($num/$sumOfSpecimens));

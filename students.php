@@ -10,7 +10,7 @@
 	<div class="card">
 		<h2>Student Researchers</h2>
 		<?php
-			// connect to the database
+			// Connect to the database
 	        $username = "mjf78594";
 	        $password = "A1G0r!tHm";
 	     	$con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
@@ -20,8 +20,9 @@
 		<table border='1' id="teamTable">
     	<tr><th>Student Name</th><th>Team Name</th></tr>
     	<?php
-	    	// iterate through the result set
-	    	while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
+	    	// Iterate through all observations as $row
+	    	while($row = mysqli_fetch_array($result)) {	
+	    	// Echo out each data point in their respective table column
 	     	echo "<tr>
 	            <td>" , $row['Name'] , "</td>
 	            <td>" , $row['Team'], "</td>

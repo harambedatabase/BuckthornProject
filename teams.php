@@ -10,20 +10,23 @@
 		<h2>Teams and Members</h2>
     <a href="generate.html">Back to Generate Reports</a>
     <?php
+        // Connect to mysql server
         $username = "mjf78594";
         $password = "A1G0r!tHm";
      	  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+        // Get all teams
         $query = "SELECT DISTINCT Team FROM Student";
     	  $result = mysqli_query($con, $query);
-
         if(!$result)
         {
             die('Data could not be entered.' . mysql_error());
         }
     ?>
+    <!-- Set up Table -->
     <table border='1' id="teamTable">
     <tr><th>Team Name</th><th>Members</th></tr>
     <?php
+    // Iterate through each Team then inside that iteration, iterate through all members
     while($row = mysqli_fetch_array($result)) {
      echo "<tr>
             <td>" , $row['Team'] , "</td>";
