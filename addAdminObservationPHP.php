@@ -7,6 +7,8 @@
 </head>
 <body>
   <div class="card">
+  <a href='admin.html'>Back to Home</a>
+  <a href='addAdminObservation.html'>Add Another Observation</a>
 	<?php
   // connect to database
   $username = "mjf78594";
@@ -79,22 +81,17 @@
   }
   for($index=0; $index<count($speciesArray); $index++) {
     $query = "INSERT INTO Species (Data_ID, Letter, Number) VALUES(" . $last_id . ", '" . $speciesArray[$index][0] . "', " . $speciesArray[$index][1] . ");";
-    echo "SPECIES QUERY: " . $query;
     $result = mysqli_query($con, $query);
     if(!$resultBiodiversity)
     {
       die('Species Data could not be entered.' . mysql_error() . "<br>");
     }
-    echo "Species Data entered successfully.<br>";
   }
+  echo "Species Data entered successfully.<br>";
 
   // end connection
   mysql_close($con);
 	?>
-  <p>
-  <a href='admin.html'>Back to Home</a>
-  <a href='addObservation.html'>Add Another Observation</a>
-</p>
   </div>
 </body>
 </html>
