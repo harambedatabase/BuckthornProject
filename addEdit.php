@@ -11,7 +11,7 @@
   $password = "A1G0r!tHm";
   $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 
-  //insert general
+  //update general
   $setGeneral = "UPDATE General VALUES(" . $last_id . ", " . $_POST["quadrantGPS_NS"] . ", "
                                          . $_POST["quadrantGPS_EW"] . ", '" . $_POST["quadrantSize"] . "', "
                                          . $_POST["buckthornSize"] . ", '" . $_POST["density"] . "', "
@@ -25,7 +25,7 @@
   }
   echo "General Data entered successfully.<br>";
 
-  //insert competitive
+  //update competitive
   $setCompetitive = "INSERT INTO Competitive (Data_ID, BuckthornDBH, DistanceBN, BNDBH, DistanceNBN, NBNDBH, CompetitionNotes)
                                      VALUES(" . $last_id . ", " . $_POST["buckthornDBH"] . ", " . $_POST["distanceBN"] . ", "
                                               . $_POST["BNDBH"] . ", " . $_POST["distanceNBN"] . ", " . $_POST["NBNDBH"] . ", '"
@@ -38,7 +38,7 @@
   }
   echo "Competitive Data entered successfully.<br>";
 
-  //insert biodiversity
+  //update biodiversity
   $setBiodiversity = "INSERT INTO Biodiversity (Data_ID, BiodiversityNotes) VALUES(" . $last_id . ", '" . $_POST["biodiversityNotes"] . "');";
   $resultBiodiversity = mysqli_query($con, $setBiodiversity);
   if(!$resultBiodiversity)
@@ -47,7 +47,7 @@
   }
   echo "Biodiversity Data entered successfully.<br>";
 
-  //insert Species
+  //update Species
   $letters = explode("\n", trim($_POST['letterArea']));
   $numbers = explode("\n", trim($_POST['numArea']));
   $speciesArray = array(array());
