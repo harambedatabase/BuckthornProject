@@ -29,7 +29,7 @@
     $query8 = "select BuckthornCoverage from General where Data_ID = $ObsNumber";
     $coverage = mysqli_query($con, $query8);
     $query9 = "select Median from General where Data_ID = $ObsNumber";
-    $median = mysqli_query($con, $query9);
+    $median = mysqli_query($con, $query9);z
     $query10 = "select Habitat from General where Data_ID = $ObsNumber";
     $habitat = mysqli_query($con, $query10);
     $query11 = "select photos from General where Data_ID = $ObsNumber";
@@ -50,6 +50,7 @@
     $compNotes = mysqli_query($con, $query18);
   ?>
     <form action="addEdit.php" method="post">
+    <input type='hidden' value="$ObsNumber" name='observationNumber'>
     <div class="card large">
         <h2>Team</h2>
         <br/>

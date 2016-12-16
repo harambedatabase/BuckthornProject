@@ -1,35 +1,32 @@
 <html>
-<head>
-  <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css"/>
-  <meta name="keywords" content="php, mixed array" />
-</head>
 <body>
 	<?php
   // connect to database
   $username = "mjf78594";
   $password = "A1G0r!tHm";
   $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+  $id = $_POST['observationNumber'];
 
   //update general
-  $setGeneral = "UPDATE General VALUES(" . $last_id . ", " . $_POST["quadrantGPS_NS"] . ", "
+  $setGeneral = "UPDATE General (QuadrantGPS_NS, QuadrantGPS_EW, QuadrantSize, BuckthornSize, Density, BuckthornCoverage,
+                                 Median, Habitat, Photos, OtherNotes) VALUES(" . $_POST["quadrantGPS_NS"] . ", "
                                          . $_POST["quadrantGPS_EW"] . ", '" . $_POST["quadrantSize"] . "', "
                                          . $_POST["buckthornSize"] . ", '" . $_POST["density"] . "', "
                                          . $_POST["buckthornCoverage"] . ", '" . $_POST["median"] . "', '"
-                                         . $_POST["habitat"] . "', '" . $_POST["photos"]. "', '" . $_POST["otherNotes"] . "') WHERE ";
+                                         . $_POST["habitat"] . "', '" . $_POST["photos"]. "', '" . $_POST["otherNotes"] . "') WHERE Data_ID='$id';";
 
   $resultGeneral = mysqli_query($con, $setGeneral);
   if(!$resultGeneral)
   {
-      die('General Data could not be entered.' . mysql_error() . "<br>");
+      die('General Data could not be updated.' . mysql_error() . "<br>");
   }
   echo "General Data entered successfully.<br>";
 
   //update competitive
-  $setCompetitive = "INSERT INTO Competitive (Data_ID, BuckthornDBH, DistanceBN, BNDBH, DistanceNBN, NBNDBH, CompetitionNotes)
-                                     VALUES(" . $last_id . ", " . $_POST["buckthornDBH"] . ", " . $_POST["distanceBN"] . ", "
+  $setCompetitive = "UPDATE Competitive (BuckthornDBH, DistanceBN, BNDBH, DistanceNBN, NBNDBH, CompetitionNotes)
+                                     VALUES(" . $_POST["buckthornDBH"] . ", " . $_POST["distanceBN"] . ", "
                                               . $_POST["BNDBH"] . ", " . $_POST["distanceNBN"] . ", " . $_POST["NBNDBH"] . ", '"
-                                              . $_POST["competitionNotes"] . "');";
+                                              . $_POST["competitionNotes"] . "') WHERE Data_ID='$id';";
 
   $resultCompetitive = mysqli_query($con, $setCompetitive);
   if(!$resultCompetitive)
@@ -39,7 +36,7 @@
   echo "Competitive Data entered successfully.<br>";
 
   //update biodiversity
-  $setBiodiversity = "INSERT INTO Biodiversity (Data_ID, BiodiversityNotes) VALUES(" . $last_id . ", '" . $_POST["biodiversityNotes"] . "');";
+  $setBiodiversity = "UPDATE Biodiversity (BiodiversityNotes) VALUES('" . $_POST["biodiversityNotes"] . "') WHERE Data_ID='$id';";
   $resultBiodiversity = mysqli_query($con, $setBiodiversity);
   if(!$resultBiodiversity)
   {
@@ -64,7 +61,7 @@
     $index++;
   }
   for($index=0; $index<count($speciesArray); $index++) {
-    $query = "INSERT INTO Species (Data_ID, Letter, Number) VALUES(" . $last_id . ", '" . $speciesArray[$index][0] . "', " . $speciesArray[$index][1] . ");";
+    $query = "UPDATE Species (Letter, Number) VALUES('" . $speciesArray[$index][0] . "', " . $speciesArray[$index][1] . ") WHERE Data_ID='$id';";
     echo "SPECIES QUERY: " . $query;
     $result = mysqli_query($con, $query);
     if(!$resultBiodiversity)
