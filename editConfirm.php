@@ -50,6 +50,7 @@
     $compNotes = mysqli_fetch_array(mysqli_query($con, $query18));
   ?>
     <form action="addEdit.php" method="post">
+    <input type='hidden' value="<?php $ObsNumber; ?>" name='observationNumber'>
     <div class="card large">
         <h2>Team</h2>
         <br/>
@@ -68,13 +69,13 @@
         <h3>Quadrant Size:</h3>
         <input type="text" name="quadrantSize" value="<?php echo $quadSize['QuadrantSize'] ?>">
         <h3>Number of Buckthorn Stems:</h3>
-        <input type="text" name="buckthornSize" value="<?php echo $numBuckthorn['buckthornSize'] ?>">
+        <input type="text" name="buckthornSize" value="<?php echo $numBuckthorn['buckthornSize']; ?>">
         <h3>Density(# of stems/m^2):</h3>
         <input type="text" name="density" value="<?php echo $density['Density'] ?>">
         <h3>% Buckthorn Foliar Coverage:</h3>
         <input type="text" name="buckthornCoverage" value=""<?php echo $coverage['BuckthornCoverage']; ?>">
         <h3>Median Buckthorn Stem Circumference:</h3>
-        <input type="text" name="median" value="<?php echo $median['Median'] ?>">
+        <input type="text" name="median" value="<?php echo $median['Median']; ?>">
         <h3>Habitat Description:</h3>
         <input type="text" name="habitat" value="<?php echo $habitat['Habitat']; ?>">
         <h3>Photos:</h3>
@@ -86,17 +87,17 @@
         <h2>Competitive</h2>
         <br/>
         <h3>DBH of Buckthorn:</h3>
-        <input type="text" name="buckthornDBH" value=<?php $dbh ?>>
+        <input type="text" name="buckthornDBH" value="<?php echo $dbh['BuckthornDBH']; ?>">
         <h3>Distance to nearest buckthorn neighbor:</h3>
-        <input type="text" name="distanceBN" value=<?php $distanceBN ?>>
+        <input type="text" name="distanceBN" value="<?php echo $distanceBN['DistanceBN']; ?>">
         <h3>DBH of nearest buckthorn neighbor:</h3>
-        <input type="text" name="BNDBH" value=<?php $BNDBH ?>>
+        <input type="text" name="BNDBH" value="<?php echo $BNDBH['BNDBH']; ?>">
         <h3>Distance to nearest non-buckthorn neighbor:</h3>
-        <input type="text" name="distanceNBN" value=<?php $distanceNBN ?>>
+        <input type="text" name="distanceNBN" value="<?php echo $distanceNBN['DistanceNBN']; ?>">
         <h3>DBH of nearest non-buckthorn neighbor:</h3>
-        <input type="text" name="NBNDBH" value=<?php $nbndbh ?>>
+        <input type="text" name="NBNDBH" value="<?php echo $nbndbh['NBNDBH']; ?>">
         <h3>Notes (opional):</h3>
-        <input type="text" name="competitionNotes" value=<?php $compNotes ?>>
+        <input type="text" name="competitionNotes" value="<?php echo $compNotes['CompetitionNotes']; ?>">
     </div>
     <div class="card large">
         <h2>Biodiversity</h2>
