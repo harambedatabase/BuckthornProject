@@ -4,10 +4,11 @@
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
   <script type="text/javascript">google.load("jquery", "1.3.2");</script>
   <script type="text/javascript" src="functions.js"></script>
-   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <?php
+    // Fetch values to populate the textfields in the form. Makes it easier for the user to edit an observation.
     $ObsNumber = $_POST['observationNumber'];
     $username = "mjf78594";
     $password = "A1G0r!tHm";
@@ -54,20 +55,23 @@
     $numbers = mysqli_fetch_array(mysqli_query($con, $query20));
     $query21 = "Select BiodiversityNotes from Biodiversity where Data_ID = $ObsNumber;";
     $bioNotes = mysqli_fetch_array(mysqli_query($con, $query21));
+    // Delete the existing report so that it can be reentered.
     $delQuery = "DELETE FROM Data WHERE Data_ID='$ObsNumber'";
     $result = $con->query($delQuery);
-
+    // Check to see if it deleted
     if(!$result)
     {
         die;
     }
-
+    // Commit the delete
     mysqli_commit($con);
   ?>
+    <!-- Start the form  -->
     <form action="addAdminObservationPHP.php" method="post">
       <input type='hidden' value="<?php $letters['Letter']; ?>" name='letters'>
       <input type='hidden' value=",$numbers['Number']," name='numbers'>
       <input type='hidden' value=",$bioNotes['BiodiversityNotes']," name='bioNotes'>
+    <!-- Sets the html page into a card. For looks. -->
     <div class="card large">
         <h2>Team</h2>
         <br/>
@@ -76,6 +80,7 @@
         <h3>Enter the Date(mm/dd/yy)</h3>
         <input type="text" name="date" value="<?php echo $date['Date']; ?>">
     </div>
+    <!-- Form for General Data. -->
   	<div class="card large">
         <h2>General</h2>
         <br/>
@@ -100,6 +105,7 @@
         <h3>Notes (opional):</h3>
         <input type="text" name="otherNotes" value="<?php echo $notes['OtherNotes']; ?>">
     </div>
+    <!-- Form for Competitive Data. -->
     <div class="card large">
         <h2>Competitive</h2>
         <br/>
@@ -116,6 +122,7 @@
         <h3>Notes (opional):</h3>
         <input type="text" name="competitionNotes" value="<?php echo $compNotes['CompetitionNotes']; ?>">
     </div>
+    <!-- Form for Biodiversity Data. -->
     <div class="card large">
         <h2>Biodiversity</h2>
         <br/>
@@ -134,6 +141,7 @@
         <input type="text" name="biodiversityNotes">
     </div>
     <div class="card large">
+        <!-- Submit the form. -->
         <input type="submit" value="Submit">
     </div>
     </form>
