@@ -49,7 +49,7 @@
     $query18 = "select CompetitionNotes from Competitive where Data_ID = $ObsNumber;";
     $compNotes = mysqli_fetch_array(mysqli_query($con, $query18));
   ?>
-    <form action="addEdit.php" method="post">
+    <form action="addObservation.php" method="post">
     <input type='hidden' value="<?php $ObsNumber; ?>" name='observationNumber'>
     <div class="card large">
         <h2>Team</h2>
