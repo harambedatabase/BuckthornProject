@@ -14,41 +14,40 @@
     $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
     $query1 = "Select Team_Name from Data where Data_ID = $ObsNumber;";
     $teamName = mysqli_fetch_array(mysqli_query($con, $query1));
-    echo $teamName['Team_Name'];
     $query2 = "select Date from Data where Data_ID = $ObsNumber;";
-    $date = mysqli_query($con, $query2);
+    $date = mysqli_fetch_array(mysqli_query($con, $query2));
     $query3 = "select QuadrantGPS_NS from General where Data_ID = $ObsNumber;";
-    $gpsNS = mysqli_query($con, $query3);
+    $gpsNS = mysqli_fetch_array(mysqli_query($con, $query3));
     $query4 = "select QuadrantGPS_EW from General where Data_ID = $ObsNumber;";
-    $gpsEW = mysqli_query($con, $query4);
+    $gpsEW = mysqli_fetch_array(mysqli_query($con, $query4));
     $query5 = "select QuadrantSize from General where Data_ID = $ObsNumber;";
-    $quadSize = mysqli_query($con, $query5);
+    $quadSize = mysqli_fetch_array(mysqli_query($con, $query5));
     $query6 = "select BuckthornSize from General where Data_ID = $ObsNumber;";
-    $numBuckthorn = mysqli_query($con, $query6);
+    $numBuckthorn = mysqli_fetch_array(mysqli_query($con, $query6));
     $query7 = "select Density from General where Data_ID = $ObsNumber;";
-    $density = mysqli_query($con, $query7);
+    $density = mysqli_fetch_array(mysqli_query($con, $query7));
     $query8 = "select BuckthornCoverage from General where Data_ID = $ObsNumber;";
-    $coverage = mysqli_query($con, $query8);
+    $coverage = mysqli_fetch_array(mysqli_query($con, $query8));
     $query9 = "select Median from General where Data_ID = $ObsNumber;";
-    $median = mysqli_query($con, $query9);
+    $median = mysqli_fetch_array(mysqli_query($con, $query9));
     $query10 = "select Habitat from General where Data_ID = $ObsNumber;";
-    $habitat = mysqli_query($con, $query10);
+    $habitat = mysqli_fetch_array(mysqli_query($con, $query10));
     $query11 = "select photos from General where Data_ID = $ObsNumber;";
-    $photos = mysqli_query($con, $query11);
+    $photos = mysqli_fetch_array(mysqli_query($con, $query11));
     $query12 = "select OtherNotes from General where Data_ID = $ObsNumber;";
-    $notes = mysqli_query($con, $query12);
+    $notes = mysqli_fetch_array(mysqli_query($con, $query12));
     $query13 = "select BuckthornDBH from Competitive where Data_ID = $ObsNumber;";
-    $dbh = mysqli_query($con, $query13);
+    $dbh = mysqli_fetch_array(mysqli_query($con, $query13));
     $query14 = "select DistanceBN from Competitive where Data_ID = $ObsNumber;";
-    $distanceBN = mysqli_query($con, $query14);
+    $distanceBN = mysqli_fetch_array(mysqli_query($con, $query14));
     $query15 = "select BNDBH from Competitive where Data_ID = $ObsNumber;";
-    $bndbh = mysqli_query($con, $query15);
+    $bndbh = mysqli_fetch_array(mysqli_query($con, $query15));
     $query16 = "select distanceNBN from Competitive where Data_ID = $ObsNumber;";
-    $distanceNBN = mysqli_query($con, $query16);
+    $distanceNBN = mysqli_fetch_array(mysqli_query($con, $query16));
     $query17 = "select NBNDBH from Competitive where Data_ID = $ObsNumber;";
-    $nbndbh = mysqli_query($con, $query17);
+    $nbndbh = mysqli_fetch_array(mysqli_query($con, $query17));
     $query18 = "select competitionNotes from Competitive where Data_ID = $ObsNumber;";
-    $compNotes = mysqli_query($con, $query18);
+    $compNotes = mysqli_fetch_array(mysqli_query($con, $query18));
   ?>
     <form action="addEdit.php" method="post">
     <div class="card large">
@@ -63,25 +62,25 @@
         <h2>General</h2>
         <br/>
         <h3>GPS Quadrant North/South:</h3>
-        <input type="text" name="quadrantGPS_NS" value=$gpsNS>
+        <input type="text" name="quadrantGPS_NS" value="<?php echo $gpsNS['QuadrantGPS_NS'] ?>">
         <h3>GPS Quadrant East/West:</h3>
-        <input type="text" name="quadrantGPS_EW" value=$gpsEW>
+        <input type="text" name="quadrantGPS_EW" value="<?php echo $gpsEW['QuadrantGPS_EW']; ?>">
         <h3>Quadrant Size:</h3>
-        <input type="text" name="quadrantSize" value=<?php $quadSize ?>>
+        <input type="text" name="quadrantSize" value="<?php echo $quadSize['QuadrantSize'] ?>">
         <h3>Number of Buckthorn Stems:</h3>
-        <input type="text" name="buckthornSize" value=<?php $numBuckthorn ?>>
+        <input type="text" name="buckthornSize" value="<?php echo $numBuckthorn['buckthornSize'] ?>">
         <h3>Density(# of stems/m^2):</h3>
-        <input type="text" name="density" value=<?php $density ?>>
+        <input type="text" name="density" value="<?php echo $density['Density'] ?>">
         <h3>% Buckthorn Foliar Coverage:</h3>
-        <input type="text" name="buckthornCoverage" value=<?php $coverage ?>>
+        <input type="text" name="buckthornCoverage" value=""<?php echo $coverage['BuckthornCoverage']; ?>">
         <h3>Median Buckthorn Stem Circumference:</h3>
-        <input type="text" name="median" value=<?php $median ?>>
+        <input type="text" name="median" value="<?php echo $median['Median'] ?>">
         <h3>Habitat Description:</h3>
-        <input type="text" name="habitat" value=<?php $habitat ?>>
+        <input type="text" name="habitat" value="<?php echo $habitat['Habitat']; ?>">
         <h3>Photos:</h3>
-        <input type="text" name="photos" value=<?php $photos ?>>
+        <input type="text" name="photos" value="<?php echo $photos['Photos']; ?>">
         <h3>Notes (opional):</h3>
-        <input type="text" name="otherNotes" value=<?php $notes ?>>
+        <input type="text" name="otherNotes" value="<?php echo $notes['OtherNotes']; ?>">
     </div>
     <div class="card large">
         <h2>Competitive</h2>
