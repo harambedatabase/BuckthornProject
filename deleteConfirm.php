@@ -1,25 +1,25 @@
 <html>
 <head>
   <title>This Is Not A Database</title>
-  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-  <script type="text/javascript">google.load("jquery", "1.3.2");</script>
-  <script type="text/javascript" src="functions.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="card">
   <?php
+  //Assign a variable with the observation number from the hidden input containing the Data_ID to be deleted.
     $ObsNumber = $_POST['observationNumber'];
+    // connect to the database
     $username = "mjf78594";
     $password = "A1G0r!tHm";
     $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+    // create the query and send it
     $query = "Delete From Data where Data_ID = $ObsNumber";
     $result = mysqli_query($con, $query);
-    if(!$result)
+    if(!$result)//something went wrong
     {
       die('Data could not be deleted.' . mysql_error());
     }
-    echo "Data deleted successfully.\n";
+    echo "Data deleted successfully.\n";//The data was succesfully deleted
    ?>
    <p>
        <a href="admin.html">Return to Admin home</a>

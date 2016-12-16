@@ -22,7 +22,8 @@
     <tr><th> </th><th>Observation</th><th>Team Name</th></tr>
     <?php
     // iterate through the result set
-    while($row = mysqli_fetch_array($result)) {	//mysqli_fetch_array grabs the next entry in the array
+    while($row = mysqli_fetch_array($result)) {	//go through each row
+      //Add a new row to the table with a delete button and a hidden input containing the selected Data_ID
      echo "<tr>
             <td><form action='deleteConfirm.php' method='post'><input type='submit' value='Delete Observation' id='deleteObservation' style='width:100%'></td>
             <td>" , $row['Data_ID'] , "</td>
