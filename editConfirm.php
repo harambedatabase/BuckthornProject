@@ -48,9 +48,17 @@
     $nbndbh = mysqli_fetch_array(mysqli_query($con, $query17));
     $query18 = "select CompetitionNotes from Competitive where Data_ID = $ObsNumber;";
     $compNotes = mysqli_fetch_array(mysqli_query($con, $query18));
+    $query = "DELETE FROM Data WHERE Data_ID='$ObsNumber'";
+    $result = $con->query($query);
+
+    if(!$result)
+    {
+        die;
+    }
+
+      mysqli_commit($con);
   ?>
-    <form action="addObservation.php" method="post">
-    <input type='hidden' value="<?php $ObsNumber; ?>" name='observationNumber'>
+    <form action="addObservationPHP.php" method="post">
     <div class="card large">
         <h2>Team</h2>
         <br/>
