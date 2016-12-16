@@ -29,7 +29,7 @@
             die('Data could not be entered.' . mysql_error());
         }
         // Iterate throguh and output data in respective table columns
-        while($row = mysqli_fetch_array($result)) {	
+        while($row = mysqli_fetch_array($result)) {
 	     	echo "<tr>
 	            <td>" , $row['Data_ID'] , "</td>
 	            <td>" , $row['Team_Name'], "</td>
@@ -53,7 +53,7 @@
             die('Data could not be entered.' . mysql_error());
         }
         // Iterate throguh and output data in respective table columns
-        while($row = mysqli_fetch_array($result)) { 
+        while($row = mysqli_fetch_array($result)) {
             echo "<tr>
                 <td>" , $row['QuadrantGPS_NS'] , "</td>
                 <td>" , $row['QuadrantGPS_EW'], "</td>
@@ -84,7 +84,7 @@
             die('Data could not be entered.' . mysql_error());
         }
         // Iterate throguh and output data in respective table columns
-        while($row = mysqli_fetch_array($result)) { 
+        while($row = mysqli_fetch_array($result)) {
             echo "<tr>
                 <td>" , $row['BuckthornDBH'] , "</td>
                 <td>" , $row['DistanceBN'], "</td>
@@ -112,7 +112,7 @@
         $arrayOfSpecimens = array();
         // Iterate throguh and output data in respective table columns
         // Also grab data to use in Shannon-Weiner Index later
-        while($row = mysqli_fetch_array($result)) { 
+        while($row = mysqli_fetch_array($result)) {
           $sumOfSpecimens = $sumOfSpecimens + $row['Number'];
           array_push($arrayOfSpecimens, $row['Number']);
           echo "<tr>
@@ -126,7 +126,9 @@
         foreach ($arrayOfSpecimens as $num) {
           $sWIndex = $sWIndex + (($num/$sumOfSpecimens)*log($num/$sumOfSpecimens));
         }
-        $sWIndex = -1*$sWIndex;
+        if($sWIndex != 0){
+          $sWIndex = -1*$sWIndex;
+        }
         echo "Shannon Weiner Index: $sWIndex";
 
     ?>
