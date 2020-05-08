@@ -10,10 +10,10 @@
 	<div class="card">
 		<h2>Student Researchers</h2>
 		<?php
-			// Connect to the database
-	        $username = "mjf78594";
-	        $password = "A1G0r!tHm";
-	     	$con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+			session_start();
+  
+			// connect to database
+			$con = mysqli_connect("localhost",$_SESSION['username'],$_SESSION['password'],"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 	     	$query = "select Name, Team from Student;";
 	     	$result = mysqli_query($con, $query);
 		?>

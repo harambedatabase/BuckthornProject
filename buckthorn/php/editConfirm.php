@@ -10,10 +10,10 @@
   <?php
     // Fetch values to populate the textfields in the form. Makes it easier for the user to edit an observation.
     $ObsNumber = $_POST['observationNumber'];
-    // Connect to the database.
-    $username = "mjf78594";
-    $password = "A1G0r!tHm";
-    $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+    session_start();
+  
+    // connect to database
+    $con = mysqli_connect("localhost",$_SESSION['username'],$_SESSION['password'],"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
     $query1 = "Select Team_Name from Data where Data_ID = $ObsNumber;";
     $teamName = mysqli_fetch_array(mysqli_query($con, $query1));
     $query2 = "select Date from Data where Data_ID = $ObsNumber;";

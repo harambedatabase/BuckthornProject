@@ -10,9 +10,11 @@
     <a href="admin.html">Return to Home</a>
     <br/>
     <?php
-        // connect to the database
-        $username = "mjf78594";
-        $password = "A1G0r!tHm";
+        session_start();
+  
+        // connect to database
+        $username = $_SESSION['username'];
+        $password = $_SESSION['password'];
      	  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
     	  // create the query and send it
         $query = "select * from Data";
