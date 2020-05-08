@@ -10,10 +10,10 @@
 		<h2>Teams and Members</h2>
     <a href="generate.html">Back to Generate Reports</a>
     <?php
-        // Connect to mysql server
-        $username = "mjf78594";
-        $password = "A1G0r!tHm";
-     	  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+        session_start();
+  
+        // connect to database
+        $con = mysqli_connect("localhost",$_SESSION['username'],$_SESSION['password'],"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
         // Get all teams
         $query = "SELECT DISTINCT Team FROM Student";
     	  $result = mysqli_query($con, $query);

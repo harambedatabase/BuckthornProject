@@ -9,10 +9,12 @@
   <div class="card">
   <a href='admin.html'>Back to Home</a>
   <a href='addAdminObservation.html'>Add Another Observation</a>
-	<?php
+  <?php
+    session_start();
+  
   // connect to database
-  $username = "mjf78594";
-  $password = "A1G0r!tHm";
+  $username = $_SESSION['username'];
+  $password = $_SESSION['password'];
   $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
   // insert Data
   $setTeam = "INSERT INTO Data (Team_Name, Date) VALUES('" . $_POST["teamName"] . "', '" . $_POST["date"] . "');";

@@ -10,9 +10,11 @@
 	<div class="card">
 		<h2>All Observations</h2>
 		<?php
-			// Connect to the database
-	        $username = "mjf78594";
-	        $password = "A1G0r!tHm";
+			session_start();
+  
+			// connect to database
+			$username = $_SESSION['username'];
+			$password = $_SESSION['password'];
 	     	$con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
 	     	$query = "select * from Data;";
 	     	$result = mysqli_query($con, $query);

@@ -8,10 +8,10 @@
   <?php
   //Assign a variable with the observation number from the hidden input containing the Data_ID to be deleted.
     $ObsNumber = $_POST['observationNumber'];
-    // connect to the database
-    $username = "mjf78594";
-    $password = "A1G0r!tHm";
-    $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+    session_start();
+  
+  // connect to database
+  $con = mysqli_connect("localhost",$_SESSION['username'],$_SESSION['password'],"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
     // create the query and send it
     $query = "Delete From Data where Data_ID = $ObsNumber";
     $result = mysqli_query($con, $query);

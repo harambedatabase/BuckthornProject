@@ -10,10 +10,10 @@
   <a href='index.html'>Back to Home</a>
   <a href='addObservation.html'>Add Another Observation</a>
 	<?php
+  session_start();
+  
   // connect to database
-  $username = "mjf78594";
-  $password = "A1G0r!tHm";
-  $con = mysqli_connect("localhost",$username,$password,"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
+  $con = mysqli_connect("localhost",$_SESSION['username'],$_SESSION['password'],"ThisIsNotADatabase") or die("Some error occurred during connection " . mysqli_error($con));
   // insert Data
   $setTeam = "INSERT INTO Data (Team_Name, Date) VALUES('" . $_POST["teamName"] . "', '" . $_POST["date"] . "');";
   $resultTeam = mysqli_query($con, $setTeam);
